@@ -1,0 +1,45 @@
+﻿/** КС (с сервера) */
+export interface ServerCourse
+{
+    /** ИД КС */
+     id : string;
+
+    /** Тип КС */
+     courseType : string;
+
+    /** Период (с, по) */
+     range : number[];
+
+    /** Название */
+     name : string;
+
+    /** Кол-во единиц, которые необходимо набрать */
+     points : number;
+
+    /** КС обязательна? */
+     required : boolean;
+
+    /** Факультатив? */
+     faculty : boolean;
+
+    /** Вложенные КС */
+     childCourses : ServerCourse[];
+
+    /** Вложенные элементы КС */
+     childCourseElements : ServerCourseElement[];
+
+    /** Привязка к строке на UI */
+     row : number | undefined;
+
+    /** КС можно скрыть из ОП студента? */
+     canHide : boolean;
+
+    /** КС скрыта из ОП студента? */
+     hidden : boolean;
+
+    /** КС может быть окном выбора? */
+     canBeElection : boolean;
+
+    /** Данная КС - это окно выбора? (электив) */
+     isElection : boolean;
+}

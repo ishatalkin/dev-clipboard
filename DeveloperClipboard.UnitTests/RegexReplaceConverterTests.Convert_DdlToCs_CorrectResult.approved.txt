@@ -1,0 +1,45 @@
+﻿public class Curriculum {
+/// <summary>  Идентификатор ОП </summary>
+	public string Id { get; set; } = default!;
+
+/// <summary>  Код ОП </summary>
+	public string? Code { get; set; } = default!;
+
+/// <summary>  Наименование ОП </summary>
+	public string? Name { get; set; } = default!;
+
+/// <summary>  Описание ОП </summary>
+	public string? Description { get; set; } = default!;
+
+/// <summary>  Критерий Завершения </summary>
+	public int? CompletionCriterion { get; set; } = default!;
+
+/// <summary>  Продолжительность Обучения, Лет </summary>
+	public decimal? Duration { get; set; } = default!;
+
+/// <summary>  Руководитель </summary>
+	public string? ManagerId { get; set; } = default!;
+
+/// <summary>  Дата Формирования ОП </summary>
+	public DateTime? DateStart { get; set; } = default!;
+
+/// <summary>  Дата Закрытия ОП </summary>
+	public DateTime? DateEnd { get; set; } = default!;
+
+	public DateTime? AudCreatedTs { get; set; } = default!;
+
+	public string? AudCreatedBy { get; set; } = default!;
+
+	public DateTime? AudLastUpdatedTs { get; set; } = default!;
+
+	public string? AudLastUpdatedBy { get; set; } = default!;
+
+	public int? Version { get; set; } = default!;
+
+	public DateTime? DateCreated { get; set; } = default!;
+
+/// <summary>  Число Планов ОП </summary>
+	public int DEFAULT 0 PlansCount { get; set; } = default!;
+
+	
+}

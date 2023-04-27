@@ -1,0 +1,83 @@
+﻿public enum Range { number[] }
+
+// ------------------------------
+// Внешний формат данных: получаемый с сервера
+
+/// <summary> Тип периода </summary>
+public enum TermType { QUARTILE , TRIMESTER , SEMESTER }
+
+/// <summary> Общая информация об ОП </summary>
+public class PlanVersion {
+  /// <summary> Тип периода </summary>
+  public TermType TermType { get; set; } = default!;
+
+  /// <summary> Навание периода </summary>
+  public string TermLabel { get; set; } = default!;
+
+  /// <summary> Общее кол-во периодов </summary>
+  public int TermsTotalNumber { get; set; } = default!;
+
+  /// <summary> КС </summary>
+  public ServerCourse[] Courses { get; set; } = default!;
+}
+
+/// <summary> Тип КС </summary>
+public enum CourseType { CURRICULUM_BLOCK , ACADEMIC_COURSE , PROGRAM }
+
+/// <summary> КС (с сервера) </summary>
+public class ServerCourse {
+  /// <summary> ИД КС </summary>
+  public string Id { get; set; } = default!;
+
+  public string Type { get; set; } = "course";
+
+  /// <summary> Тип КС </summary>
+  public CourseType CourseType { get; set; } = default!;
+
+  /// <summary>??? Период (с, по) </summary>
+  public Range Range { get; set; } = default!;
+
+  /// <summary> Название </summary>
+  public string Name { get; set; } = default!;
+
+  /// <summary> Кол-во единиц, которые необходимо набрать </summary>
+  public int Points { get; set; } = default!;
+
+  /// <summary> КС обязательна? </summary>
+  public bool Required { get; set; } = default!;
+
+  /// <summary> Факультатив? </summary>
+  public bool Faculty { get; set; } = default!;
+
+  /// <summary> Вложенные КС / элементы КС </summary>
+  public (ServerCourseElement | ServerCourse)[] Childs { get; set; } = default!;
+
+  /// <summary>??? Привязка к строке на UI </summary>
+  public int? Row { get; set; } = default!;
+}
+
+/// <summary> Элемент КС (с сервера) </summary>
+public class ServerCourseElement {
+  /// <summary> ИД КС </summary>
+  public string Id { get; set; } = default!;
+
+  public string Type { get; set; } = "course-unit";
+
+  /// <summary> ИД МУП </summary>
+  public string CourseUnitId { get; set; } = default!;
+
+  /// <summary> ??? Период (с, по) </summary>
+  public Range Terms { get; set; } = default!;
+
+  /// <summary> Название МУП </summary>
+  public string Name { get; set; } = default!;
+
+  /// <summary> Кол-во единиц </summary>
+  public int Points { get; set; } = default!;
+
+  /// <summary> Элемент обязателен? </summary>
+  public bool Required { get; set; } = default!;
+
+  /// <summary> ??? Привязка к строке на UI </summary>
+  public int? Row { get; set; } = default!;
+}

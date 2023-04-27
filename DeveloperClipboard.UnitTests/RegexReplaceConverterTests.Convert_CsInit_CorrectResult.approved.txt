@@ -1,0 +1,26 @@
+﻿        
+        Id = ,
+
+        
+        SpecialityCode = ,
+
+        
+        ProfileId = ,
+
+        
+        Profile = ,
+
+        
+        CurriculumPlanId = ,
+
+        
+        CurriculumPlan = ,
+
+        
+        CurriculumPlanVersionId = ,
+
+        
+        CurriculumPlanVersion = ,
+
+        
+        Active = ,

@@ -1,0 +1,1 @@
+﻿curriculumFlowId: string, specialityCode: string, profileId: string

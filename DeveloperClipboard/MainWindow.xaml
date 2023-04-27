@@ -1,0 +1,47 @@
+﻿<Window x:Class="DeveloperClipboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DeveloperClipboard"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Width="0" Height="0"
+        ShowInTaskbar="False"
+        Loaded="MainWindow_OnLoaded">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <ListBox ItemsSource="{Binding Snippets}" SelectedItem="{Binding Selected}" Grid.Column="0" Grid.Row="0"
+                 BorderBrush="Transparent" Margin="0" Padding="0"
+                 KeyUp="Snippets_OnKeyUp" MouseUp="Snippets_OnMouseUp" KeyDown="Snippets_OnKeyDown"
+                 x:Name="Snippets">
+            <ListBox.ItemContainerStyle>
+                <Style>
+                    <Setter Property="ListBoxItem.FontFamily" Value="Courier New" />
+                    <Setter Property="ListBoxItem.BorderThickness" Value="0 0 0 1" />
+                    <Setter Property="ListBoxItem.BorderBrush" Value="LightGray" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Description}" Height="15" TextWrapping="Wrap" FontWeight="Bold"></TextBlock>
+                        <TextBlock Text="{Binding Code}" Height="80" TextWrapping="Wrap"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
