@@ -1,0 +1,8 @@
+﻿/**Дата создания заявки*/
+         createdDate : Date;
+
+    /**Код*/
+         code : string;
+
+    /**Название*/
+             name : string;

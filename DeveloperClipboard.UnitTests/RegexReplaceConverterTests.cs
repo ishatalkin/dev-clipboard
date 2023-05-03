@@ -142,6 +142,19 @@ public class ServerCourse
     public bool IsElection { get; set; }
 }";
 
+    private const string CSharpCode2 = @"/// <summary>Дата создания заявки</summary>
+    [DataType(DataType.Date)]
+    public DateTime CreatedDate { get; set; }
+
+    /// <summary>Код</summary>
+    [MaxLength(1000)]
+    public string Code { get; set; }
+
+    /// <summary>Название</summary>
+    [MaxLength(1000)]
+    [Required]
+    public string Name { get; set; }";
+
     private const string CSharpParams = "string curriculumFlowId, string specialityCode, string profileId";
 
     private const string DdlCode = @"CREATE TABLE curriculum (
@@ -212,6 +225,18 @@ public class ServerCourse
 
         //Act
         var result = await _converter.Convert(CSharpCode, CSharpToTypeScriptConventions.TypeToInterfaceConventions);
+
+        //Assert
+        Approvals.Verify(result.Code);
+    }
+    
+    [Fact]
+    public async Task Convert_CsToTs2_CorrectResult()
+    {
+        //Arrange
+
+        //Act
+        var result = await _converter.Convert(CSharpCode2, CSharpToTypeScriptConventions.TypeToInterfaceConventions);
 
         //Assert
         Approvals.Verify(result.Code);

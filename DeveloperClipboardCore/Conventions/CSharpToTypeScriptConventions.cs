@@ -15,6 +15,7 @@ public class CSharpToTypeScriptConventions
         {
             new("/// <summary>", "/**"),
             new("</summary>", "*/"),
+            new(@"\[.+\][\r\n]*", ""), // атрибуты
             new("public class", "export interface"),
             new("public record", "export interface"),
             new("\\bpublic\\b", ""),
