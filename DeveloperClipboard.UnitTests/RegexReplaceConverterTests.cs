@@ -177,10 +177,13 @@ public class ServerCourse
 	CONSTRAINT pk_curriculum PRIMARY KEY (id)
 );";
     
-    private const string CsPropsCode = @"        /// <summary> ПК </summary>
+    private const string CsPropsCode = @"
+        /// <summary> ПК </summary>
         public string Id { get; set; } = default!;
 
         /// <summary> Код специальности </summary>
+        [MaxLength(1000)]
+        [Required]
         public string SpecialityCode { get; set; } = default!;
 
         /// <summary> ИД профиля </summary>

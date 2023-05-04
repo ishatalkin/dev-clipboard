@@ -1,26 +1,10 @@
-﻿        
-        Id = ,
-
-        
-        SpecialityCode = ,
-
-        
-        ProfileId = ,
-
-        
-        Profile = ,
-
-        
-        CurriculumPlanId = ,
-
-        
-        CurriculumPlan = ,
-
-        
-        CurriculumPlanVersionId = ,
-
-        
-        CurriculumPlanVersion = ,
-
-        
-        Active = ,
+﻿
+Id = ,
+SpecialityCode = ,
+ProfileId = ,
+Profile = ,
+CurriculumPlanId = ,
+CurriculumPlan = ,
+CurriculumPlanVersionId = ,
+CurriculumPlanVersion = ,
+Active = ,

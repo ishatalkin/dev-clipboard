@@ -56,9 +56,12 @@ public class SnippetConverter
                 Input = json,
                 OperationId = operationId,
                 Settings = new()
+                {
+                    UsePascalCase = true
+                }
             })
             .ReceiveJson<string>();
 
-        return new(converted, converted.StartsWith("Exception: Invalid character after") ? ConvertionState.NothingToConvert : ConvertionState.Ok);
+        return new(converted, converted.StartsWith("Exception:") ? ConvertionState.NothingToConvert : ConvertionState.Ok);
     }
 }
