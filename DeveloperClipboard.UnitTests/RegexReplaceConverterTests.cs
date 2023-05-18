@@ -202,10 +202,12 @@ public class ServerCourse
         public string CurriculumPlanVersionId { get; set; } = default!;
 
         /// <summary> Номер версии плана реализации ОП </summary>
-        public string CurriculumPlanVersion { get; set; } = default!;
+        public string [] CurriculumPlanVersion { get; set; } = default!;
+
+        public Dictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary> Активный? </summary>
-        public bool Active { get; set; }";
+        public List<List<bool>> Active { get; set; }";
 
     #endregion
 

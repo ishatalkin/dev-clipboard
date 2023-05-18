@@ -1,5 +1,4 @@
-﻿
-Id = ,
+﻿Id = ,
 SpecialityCode = ,
 ProfileId = ,
 Profile = ,
@@ -7,4 +6,5 @@ CurriculumPlanId = ,
 CurriculumPlan = ,
 CurriculumPlanVersionId = ,
 CurriculumPlanVersion = ,
+AdditionalProperties = ,
 Active = ,
