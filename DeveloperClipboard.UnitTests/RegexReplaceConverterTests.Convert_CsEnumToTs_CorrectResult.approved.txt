@@ -1,0 +1,12 @@
+﻿        /** Необходимость оплаты проверки ДЗ */
+        export enum PaymentRequirement
+        {
+            /** Бесплатная проверка */
+            Free = 'Free',
+
+            /** Необходимо оплатить */
+            NeedToPay = 'NeedToPay',
+
+            /** Работа оплачена */
+            Payed = 'Payed'
+        }

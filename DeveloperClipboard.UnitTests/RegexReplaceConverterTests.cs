@@ -100,7 +100,7 @@ export interface ServerCourseElement {
 public class ServerCourse
 {
     /// <summary> ИД КС </summary>
-    public string Id { get; set; } = default!;
+    public required string Id { get; set; } = default!;
 
     /// <summary> Тип КС </summary>
     public string CourseType { get; set; } = default!;
@@ -113,6 +113,9 @@ public class ServerCourse
 
     /// <summary> Кол-во единиц, которые необходимо набрать </summary>
     public int Points { get; set; } = default!;
+
+    /// <summary> Кол-во единиц, которые необходимо набрать </summary>
+    public double SomeDouble { get; set; } = default!;
 
     /// <summary> КС обязательна? </summary>
     public bool Required { get; set; } = default!;
@@ -140,6 +143,11 @@ public class ServerCourse
 
     /// <summary> Данная КС - это окно выбора? (электив) </summary>
     public bool IsElection { get; set; }
+
+    /// <summary>
+    /// Связи между МУПами
+    /// </summary>
+    public Edge[] Links { get; set; } = default!;
 }";
 
     private const string CSharpCode2 = @"/// <summary>Дата создания заявки</summary>
@@ -209,6 +217,19 @@ public class ServerCourse
         /// <summary> Активный? </summary>
         public List<List<bool>> Active { get; set; }";
 
+    private const string CsEnumCode = @"        /// <summary> Необходимость оплаты проверки ДЗ </summary>
+        public enum PaymentRequirement
+        {
+            /// <summary> Бесплатная проверка </summary>
+            Free,
+
+            /// <summary> Необходимо оплатить </summary>
+            NeedToPay,
+
+            /// <summary> Работа оплачена </summary>
+            Payed
+        }";
+    
     #endregion
 
     [Fact]
@@ -242,6 +263,18 @@ public class ServerCourse
 
         //Act
         var result = await _converter.Convert(CSharpCode2, CSharpToTypeScriptConventions.TypeToInterfaceConventions);
+
+        //Assert
+        Approvals.Verify(result.Code);
+    }
+    
+    [Fact]
+    public async Task Convert_CsEnumToTs_CorrectResult()
+    {
+        //Arrange
+
+        //Act
+        var result = await _converter.Convert(CsEnumCode, CSharpToTypeScriptConventions.TypeToInterfaceConventions);
 
         //Assert
         Approvals.Verify(result.Code);
